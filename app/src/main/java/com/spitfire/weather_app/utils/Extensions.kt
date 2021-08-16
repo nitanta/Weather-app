@@ -7,6 +7,7 @@ import com.bumptech.glide.Glide
 import java.text.SimpleDateFormat
 import java.util.*
 import androidx.databinding.BindingAdapter
+import com.spitfire.weather_app.R
 
 fun dateConverter(): String {
     var date = Calendar.getInstance().time
