@@ -2,24 +2,35 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    android:id="@+id/navigation_layout"
+    app:startDestination="@id/locationFragment">
+    <fragment
+        android:id="@+id/locationFragment"
+        android:name="com.spitfire.weather_app.LocationFragment"
+        tools:layout="@layout/fragment_location"
+        android:label="LocationFragment" />
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.spitfire.weather_app.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
-
+        android:id="@+id/fiveDaysFragment"
+        android:name="com.spitfire.weather_app.FiveDaysFragment"
+        tools:layout="@layout/fragment_five_days"
+        android:label="FiveDaysFragment" >
+    </fragment>
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.spitfire.weather_app.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
-
+        android:id="@+id/oneDayDetailFragment"
+        android:name="com.spitfire.weather_app.CityDailyDetailFragment"
+        android:label="OneDayDetailFragment" >
+        <argument
+            android:name="cityWeatherDetail"
+            app:argType="com.spitfire.weather_app.model.CityDailyResponse" />
+    </fragment>
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.spitfire.weather_app.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/oneDayFragment"
+        android:name="com.spitfire.weather_app.CityDailyFragment"
+        tools:layout="@layout/fragment_city_daily"
+        android:label="OneDayFragment" >
+        <action
+            android:id="@+id/action_oneDayFragment_to_oneDayDetailFragment2"
+            app:destination="@id/oneDayDetailFragment" />
+    </fragment>
 </navigation>
